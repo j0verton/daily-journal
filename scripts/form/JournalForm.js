@@ -4,7 +4,7 @@ export const JournalFormComponent = () => {
     <form action="">
         <fieldset>
             <label for="journalDate">Date of Entry</label>
-            <input type="date" name="journalDate" id="journalDate">
+            <input type="date" name="journalDate" id="journalDate" value=${Date.now}>
         </fieldset>
         <fieldset>
             <label for="concepts">Concepts covered</label>
@@ -12,7 +12,7 @@ export const JournalFormComponent = () => {
         </fieldset> 
         <fieldset>
             <label for="entry">Journal Entry</label>
-            <textarea name="message" rows="10" cols="30"></textarea>
+            <textarea name="message" rows="10" cols="30" id="entry"></textarea>
         </fieldset>
         <fieldset>
             <label for="mood">Mood for the Day</label>
@@ -36,7 +36,7 @@ export const JournalFormComponent = () => {
             </select>
         </fieldset>
         <fieldset>
-            <button type="button">record entry</button>
+            <button type="button" id="record-entry">record entry</button>
         </fieldset>
     </form>
     `
