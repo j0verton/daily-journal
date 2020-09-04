@@ -33,8 +33,8 @@ export const saveJournalEntry  = entry => {
         },
         body: JSON.stringify(entry)
     })
-    .then(getEntries())
-    .then(dispatchStateChangeEvent())
+    .then(getEntries)
+    .then(dispatchStateChangeEvent)
 }
 
 eventHub.addEventListener("click", clickEvent => {
