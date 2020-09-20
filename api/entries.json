@@ -66,20 +66,20 @@
   ],
   "moods": [
     {
-        "id": 1,
-        "label": "Ok"
+      "id": 1,
+      "label": "Ok"
     },
     {
-        "id": 2,
-        "label": "Verklempt"
+      "id": 2,
+      "label": "Verklempt"
     },
     {
       "id": 3,
       "label": "Excited"
     },
     {
-        "id": 4,
-        "label": "Pumped"
+      "id": 4,
+      "label": "Pumped"
     },
     {
       "id": 5,
@@ -90,25 +90,16 @@
       "label": "Gung-Ho"
     },
     {
-        "id": 7,
-        "label": "Sad"
+      "id": 7,
+      "label": "Sad"
     },
     {
       "id": 8,
       "label": "Frantic"
+    },
+    {
+      "label": "Diggin' In",
+      "id": 9
     }
-
-],
-"moods": [
-  {
-      "id": 1,
-      "label": "Brenda"
-  },
-  {
-    "id": 2,
-    "label": "Adam"
-},
-{
-  "id": 3,
-  "label": "Sage"
-},
+  ]
+}

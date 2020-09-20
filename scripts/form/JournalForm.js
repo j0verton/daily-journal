@@ -1,12 +1,6 @@
 import { getMoods, useMoods } from "../moods/MoodProvider.js"
 
 export const JournalFormComponent = () => {
-    let allMoods
-    getMoods()
-    .then(useMoods)
-    .then(moods => {
-        allMoods = moods
-    }).then(() => {
         const form = `
             <h2>Daily Journal</h2>
             <form action="">
@@ -22,18 +16,7 @@ export const JournalFormComponent = () => {
                     <label for="entry">Journal Entry</label>
                     <textarea name="message" rows="10" cols="30" id="entry"></textarea>
                 </fieldset>
-                <fieldset>
-                    <label for="mood">Mood for the Day</label>
-                    <select name="mood" id="mood">
-                    ${
-                        allMoods.map(
-                            (mood) => {
-                                return `<option value="${ mood.id }">${ mood.label }</option>`
-                            }
-                        ).join("")
-                    }
-                    </select>
-                    <button type="button" id="newMood">enter a new mood</button>
+                <fieldset id="moodField">
                 </fieldset>
                 <fieldset>
                     <button type="submit" id="record-entry">record entry</button>
@@ -41,8 +24,9 @@ export const JournalFormComponent = () => {
             </form>
         `
         document.getElementById("form").innerHTML += form
-    })
+        moodSelect()
 }
+
 
 
 
@@ -54,3 +38,25 @@ export const handleChange = ()=> {
         conceptAlertTarget.innerHTML += '<div>only 10 characters allowed</div>';
     }
 }
+
+export const moodSelect = () => { 
+    let allMoods
+    getMoods()
+        .then(useMoods)
+        .then(moods => {
+            allMoods = moods
+        }).then(() => {
+            document.getElementById("moodField").innerHTML =
+            `<label for="mood">Mood for the Day</label>
+                <select name="mood" id="mood">
+                ${
+                    allMoods.map(
+                    (mood) => {
+                        return `<option value="${ mood.id }">${ mood.label }</option>`
+                    }
+                    ).join("")
+                }
+            </select>
+            <button type="button" id="newMood">enter a new mood</button>
+            `
+})}
