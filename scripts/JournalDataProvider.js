@@ -49,9 +49,7 @@ export const deleteEntry = entryId => {
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "record-entry"){
         clickEvent.preventDefault()
-    // 
 
-    // 
         // Make a new object representation of a note
         const newEntry = {
             date: `${document.getElementById("journalDate").value}`,
@@ -69,17 +67,12 @@ eventHub.addEventListener("click", clickEvent => {
                 saveJournalEntry (newEntry)
             } else { 
                 let newMood = document.getElementById("mood").value
-                debugger
-                //moodselect isnt running before the .then on line 75
-                Promise.allSettled([saveMood(newMood), moodSelect()])
-                .then(()=>{
-                    let newMoodContainer = document.querySelector("#mood")
-                    let moodArray = newMoodContainer.querySelectorAll("option")
-                    let newMood = moodArray.find(element => {
-                        return element.textContent === newMood
-                    })
-                    newEntry.moodId = newMood.value
+                saveMood(newMood)
+                .then(moodObj=>{
+                    let newMood = moodObj.id
+                    newEntry.moodId = newMood
                     saveJournalEntry (newEntry)
+                    moodSelect()
                 })
             }
         } else { alert("Please fill out every field before saving your entry!")}

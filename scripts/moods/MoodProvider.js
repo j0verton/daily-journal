@@ -24,8 +24,10 @@ export const saveMood = mood => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(moodEntry)
-    }).then(moodSelect)
+    // }).then((moodObj) => moodObj.json())
+    }).then(moodObj => moodObj.json())
 }
+
 
 document.addEventListener("click", clickEvent => {
     let moodBtn = document.getElementById("newMood")
@@ -38,7 +40,9 @@ document.addEventListener("click", clickEvent => {
         } else if (moodBtn.textContent === "save mood" && document.getElementById("mood").value){
             let newMood = document.getElementById("mood").value
             console.log(newMood)
-            saveMood(newMood)
+            saveMood(newMood).then(()=>{
+                moodSelect()
+            })
         } else if (moodBtn.textContent === "save mood" && !document.getElementById("mood").value) {
             moodSelect()
         }

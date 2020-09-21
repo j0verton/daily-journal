@@ -1,3 +1,4 @@
+import { FilterBar } from "../filter/FilterBar.js"
 import { getMoods, useMoods } from "../moods/MoodProvider.js"
 
 export const JournalFormComponent = () => {
@@ -25,6 +26,7 @@ export const JournalFormComponent = () => {
         `
         document.getElementById("form").innerHTML += form
         moodSelect()
+        FilterBar()
 }
 
 
@@ -59,4 +61,6 @@ export const moodSelect = () => {
             </select>
             <button type="button" id="newMood">enter a new mood</button>
             `
-})}
+}
+
+)}
