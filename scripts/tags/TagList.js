@@ -1,36 +1,63 @@
-import { saveEntryTag, saveTag } from "./TagProvider.js"
+import { findTag, saveEntryTag, saveTag } from "./TagProvider.js"
 
 const eventHub = document.querySelector("#event-hub")
 
-eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "record-entry"){
-        clickEvent.preventDefault()
-
-        let tagsString = document.getElementById("tags").value
-        let tagArray = tagsString.split(",")
-        console.log(tagArray)
-        tagArray.forEach(tag => {
-            findTag(tag)  // tag variable will have a string value
-                .then(matches => {  // `matches` variable value will be array of matching objects
-                    let matchingTag = null
-                    if (matches.length > 0) {
-                        matchingTag = matches[0].id
-                    }
-                    if (matchingTag === null) {
-                        // Tag doesn't exist. Create it then assign it to entry.
-                        saveTag(tag)
-                            .then(new_tag => {
-                                saveEntryTag(entry.id, new_tag.id)
-                            })
-                    }
-                    else {
-                        // Tag does exist. Assign it to entry.
-                        saveEntryTag(entry.id, matchingTag)
-                    }
-                })
-        }) 
-    }
+eventHub.addEventListener("journalStateChanged", e => {
+    console.log(e)
+    let tagsString = document.getElementById("tags").value
+    let tagArray = tagsString.split(",")
+    console.log(tagArray)
+    tagArray.forEach(tag => {
+        findTag(tag)  // tag variable will have a string value
+            .then(matches => {  // `matches` variable value will be array of matching objects
+                let matchingTag = null
+                if (matches.length > 0) {
+                    matchingTag = matches[0].id
+                }
+                if (matchingTag === null) {
+                    // Tag doesn't exist. Create it then assign it to entry.
+                    saveTag(tag)
+                        .then(response => response.json())
+                        .then(new_tag => {
+                            console.log(new_tag)
+                            saveEntryTag(e.detail.newId, new_tag.id)
+                        })
+                }
+                else {
+                    // Tag does exist. Assign it to entry.
+                    saveEntryTag(e.detail.newId, matchingTag)
+                }
+            })
+    }) 
 })
+
+//this section deals with the tags, tags are split up, findTag searches the tags in the db for each one 
+//then they are added to both lists if they dont exist yet
+
+// let tagsString = document.getElementById("tags").value
+// let tagArray = tagsString.split(",")
+// console.log(tagArray)
+// tagArray.forEach(tag => {
+//     findTag(tag)  // tag variable will have a string value
+//         .then(matches => { 
+//             console.log(newEntry) // `matches` variable value will be array of matching objects
+//             let matchingTag = null
+//             if (matches.length > 0) {
+//                 matchingTag = matches[0].id
+//             }
+//             if (matchingTag === null) {
+//                 // Tag doesn't exist. Create it then assign it to entry.
+//                 saveTag(tag)
+//                     .then(new_tag => {
+//                         saveEntryTag(newEntry.id, new_tag.id)
+//                     })
+//             }
+//             else {
+//                 // Tag does exist. Assign it to entry.
+//                 saveEntryTag(newEntry.id, matchingTag)
+//             }
+//         })
+// }) 
 
 /*
 Add an input field in your journal form where you can enter a list of tags, separated by commas

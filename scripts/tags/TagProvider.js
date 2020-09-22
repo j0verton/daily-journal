@@ -6,11 +6,9 @@ export const findTag = (subject) => {
 
 
 export const saveTag = tag => {
-    console.log("tag inside save", tag)
     let tagObj = {
         subject: tag
     }
-    console.log("tagObj", tagObj)
         return fetch('http://localhost:8088/tags', { 
             method: "POST",
             headers: {
@@ -22,12 +20,13 @@ export const saveTag = tag => {
 
 
 export const saveEntryTag = (entryId, tagId) => {
-    
+    console.log(entryId)
+    console.log(tagId)
     let EntryTagObj = {
         entryId: entryId,
         tagId: tagId
     }
-    return fetch('http://localhost:8088/tags', { 
+    return fetch('http://localhost:8088/entrytags', { 
         method: "POST",
         headers: {
             "Content-Type": "application/json"

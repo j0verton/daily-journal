@@ -19,7 +19,7 @@ export const JournalFormComponent = () => {
                 </fieldset>
                 <fieldset id="tagField">
                     <label for="tags">tags</label>
-                    <input type="text" name="tags" id="tags" maxlength="12">
+                    <input type="text" name="tags" id="tags">
                 </fieldset>
                 <fieldset id="moodField">
                 </fieldset>

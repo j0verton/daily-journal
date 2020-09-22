@@ -2,7 +2,7 @@
 import { moodSelect } from "./form/JournalForm.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
 import { saveMood } from "./moods/MoodProvider.js"
-import { findTag } from "./tags/TagProvider.js"
+import { findTag, saveEntryTag, saveTag } from "./tags/TagProvider.js"
 const eventHub = document.querySelector("#event-hub")
 
 export const useJournalEntries = () => {
@@ -57,12 +57,10 @@ eventHub.addEventListener("click", clickEvent => {
             entry: `${document.getElementById("entry").value}`,
             moodId: `${document.getElementById("mood").value}`
         }
-        console.log(newEntry)
         if(newEntry.date && newEntry.concept && newEntry.entry && newEntry.moodId){
             
             let moodIdNumber = parseInt(newEntry.moodId)
             if(Number.isInteger(moodIdNumber)){
-                console.log("isInt")
                 // Change API state and application state
                 saveJournalEntry (newEntry)
             } else { 
@@ -76,11 +74,18 @@ eventHub.addEventListener("click", clickEvent => {
                 })
             }
         } else { alert("Please fill out every field before saving your entry!")}
-    }
+    } 
 })
 
-const dispatchStateChangeEvent = () => {
-    eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
+const dispatchStateChangeEvent = entry => {
+    console.log(entry)
+    let newEntry = entry.pop()
+    console.log(newEntry)
+    eventHub.dispatchEvent(new CustomEvent("journalStateChanged", {
+        detail: {
+            newId: newEntry.id
+        }
+    }))
 }
 
 eventHub.addEventListener("click", clickEvent => { 

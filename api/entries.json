@@ -104,38 +104,38 @@
   ],
   "tags": [
     {
-        "id": 1,
-        "subject": "API"
+      "id": 1,
+      "subject": "API"
     },
     {
-        "id": 2,
-        "subject": "components"
+      "id": 2,
+      "subject": "components"
     },
     {
-        "id": 3,
-        "subject": "fetch"
+      "id": 3,
+      "subject": "fetch"
     }
   ],
   "entrytags": [
     {
-        "id": 1,
-        "entryId": 4,
-        "tagId": 2
+      "id": 1,
+      "entryId": 4,
+      "tagId": 2
     },
     {
-        "id": 2,
-        "entryId": 4,
-        "tagId": 3
+      "id": 2,
+      "entryId": 4,
+      "tagId": 3
     },
     {
-        "id": 2,
-        "entryId": 9,
-        "tagId": 1
+      "id": 3,
+      "entryId": 9,
+      "tagId": 1
     },
     {
-        "id": 2,
-        "entryId": 9,
-        "tagId": 2
+      "id": 4,
+      "entryId": 9,
+      "tagId": 2
     }
   ]
 }
