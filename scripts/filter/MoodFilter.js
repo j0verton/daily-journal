@@ -3,7 +3,7 @@ let allMoods
 const eventHub = document.querySelector("#event-hub")
 export const MoodFilter = () => {
     //make look like moodSelect
-        getMoods()
+       return getMoods()
             .then(useMoods)
             .then(moods =>{
                 allMoods = moods
@@ -28,11 +28,15 @@ export const MoodFilter = () => {
                     ` 
                 console.log(html) 
                 return html         
-            })
-            
+            })   
 }
-eventHub.addEventListener("change", e => {
-    if (e.target.name === "moodFilter") {
-
-    }
-})
+// eventHub.addEventListener("change", e => {
+//     if (e.target.name === "moodFilter") {
+//         const customEvent = new CustomEvent("moodChosen", {
+//             detail: {
+//                 moodId = e.target.value
+//             }
+//         })
+//         eventHub.dispatchEvent(customEvent)
+//     }
+// })

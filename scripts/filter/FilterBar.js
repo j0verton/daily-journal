@@ -9,9 +9,12 @@ const contentTarget = document.querySelector(".filters")
 export const FilterBar = () => {
     console.log("filterbar")
     const render = () => {
-        contentTarget.innerHTML = `
-            ${MoodFilter()}
-        `
+        MoodFilter().then(html =>{
+            contentTarget.innerHTML = `
+            ${html}
+            `
+        })
     }
         render()
 }
+
