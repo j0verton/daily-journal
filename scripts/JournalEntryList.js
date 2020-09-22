@@ -4,7 +4,7 @@
  *    there are items in the collection exposed by the
  *    data provider component
  */
-import { useJournalEntries, getEntries } from "./JournalDataProvider.js"
+import { useJournalEntries, getEntries, addEntriestoDOM } from "./JournalDataProvider.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
 import { handleChange } from "./form/JournalForm.js"
 
@@ -14,17 +14,23 @@ const eventHub = document.querySelector("#event-hub")
 
 export const EntryListComponent = () => {
     // Use the journal entry data from the data provider component
-    const entries = getEntries()
-
-    //refactored to remove the for...of in favor of .map
-    // entries.map(entry => {
-    //     let HTMLentry = JournalEntryComponent(entry)
-    //    entryLog.innerHTML += HTMLentry;
-
-    // })
-    
-
+    getEntries().then(entries => {
+        addEntriestoDOM(entries)
+    })
 }
+
 eventHub.addEventListener("journalStateChanged", () => {
     EntryListComponent()
+})
+
+eventHub.addEventListener("moodChosen", event => {
+    getEntries().then(entries => {
+        console.log(entries)
+        return entries.filter(entry => {
+            return entry.moodId === parseInt(event.detail.moodId)
+        })
+    }).then(entryArray => {
+        console.log(entryArray)
+        addEntriestoDOM(entryArray)
+    })
 })

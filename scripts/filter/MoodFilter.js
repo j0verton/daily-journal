@@ -30,13 +30,13 @@ export const MoodFilter = () => {
                 return html         
             })   
 }
-// eventHub.addEventListener("change", e => {
-//     if (e.target.name === "moodFilter") {
-//         const customEvent = new CustomEvent("moodChosen", {
-//             detail: {
-//                 moodId = e.target.value
-//             }
-//         })
-//         eventHub.dispatchEvent(customEvent)
-//     }
-// })
+eventHub.addEventListener("change", e => {
+    if (e.target.name === "moodFilter") {
+        const customEvent = new CustomEvent("moodChosen", {
+            detail: {
+                moodId: e.target.value
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+    }
+})

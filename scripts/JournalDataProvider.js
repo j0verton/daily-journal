@@ -14,17 +14,18 @@ export const useJournalEntries = () => {
 
 export const getEntries = () => {
     return fetch("http://localhost:8088/entries?_expand=mood") // Fetch from the API
-        .then(response => response.json())  // Parse as JSON
-        .then(entries => {
-            let allEntries = entries.map(entry => {
-                let HTMLentry = JournalEntryComponent(entry)
-                HTMLentry += `<button type="button" id="deleteBtn--${entry.id}">delete entry</button>`
-                let allEntries = ''
-                allEntries += HTMLentry
-                return allEntries
-            })
-            entryLog.innerHTML = allEntries.join('')
-        })
+        .then(response => response.json())
+}
+        
+export const addEntriestoDOM = entryArray => {        
+    let allEntries = entryArray.map(entry => {
+        let HTMLentry = JournalEntryComponent(entry)
+        HTMLentry += `<button type="button" id="deleteBtn--${entry.id}">delete entry</button>`
+        let allEntries = ''
+        allEntries += HTMLentry
+        return allEntries
+    })
+    entryLog.innerHTML = allEntries.join('')
 }
 export const saveJournalEntry  = entry => {
     console.log("note inside save", entry)
