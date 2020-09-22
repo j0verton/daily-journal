@@ -2,6 +2,7 @@
 import { moodSelect } from "./form/JournalForm.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
 import { saveMood } from "./moods/MoodProvider.js"
+import { findTag } from "./tags/TagProvider.js"
 const eventHub = document.querySelector("#event-hub")
 
 export const useJournalEntries = () => {
@@ -28,7 +29,6 @@ export const addEntriestoDOM = entryArray => {
     entryLog.innerHTML = allEntries.join('')
 }
 export const saveJournalEntry  = entry => {
-    console.log("note inside save", entry)
     return fetch('http://localhost:8088/entries', { 
         method: "POST",
         headers: {
@@ -50,7 +50,6 @@ export const deleteEntry = entryId => {
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "record-entry"){
         clickEvent.preventDefault()
-
         // Make a new object representation of a note
         const newEntry = {
             date: `${document.getElementById("journalDate").value}`,

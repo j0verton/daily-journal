@@ -7,7 +7,6 @@ import { MoodFilter } from "./MoodFilter.js"
 const contentTarget = document.querySelector(".filters")
 
 export const FilterBar = () => {
-    console.log("filterbar")
     const render = () => {
         MoodFilter().then(html =>{
             contentTarget.innerHTML = `

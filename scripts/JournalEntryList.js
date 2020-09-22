@@ -34,3 +34,38 @@ eventHub.addEventListener("moodChosen", event => {
         addEntriestoDOM(entryArray)
     })
 })
+
+//this is the thing I kept doing that doesn't work, fixed above
+
+// eventHub.addEventListener("moodChosen", event => {
+//     let entryArray = getEntries().then(entries => {
+//         console.log(entries)
+//         return entries.filter(entry => {
+//             return entry.moodId === event.detail.moodId
+//         })
+//     })
+//     console.log(entryArray)
+//     addEntriestoDOM(entryArray)
+//     })
+
+// findTag(tag)  // tag variable will have a string value
+//     .then(matches => {  // `matches` variable value will be array of matching objects
+//         let matchingTag = null
+
+//         if (matches.length > 0) {
+//             matchingTag = matches[0].id
+//         }
+
+//         if (matchingTag === null) {
+//             // Tag doesn't exist. Create it then assign it to entry.
+//             saveTag(tag)
+//                 .then(new_tag => {
+//                     saveEntryTag(entry.id, new_tag.id)
+//                 })
+//         }
+//         else {
+//             // Tag does exist. Assign it to entry.
+//             saveEntryTag(entry.id, matchingTag)
+//         }
+//     })
+

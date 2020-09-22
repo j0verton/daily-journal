@@ -7,11 +7,8 @@ export const MoodFilter = () => {
             .then(useMoods)
             .then(moods =>{
                 allMoods = moods
-                console.log(allMoods)
                 return allMoods
             }).then(() => {
-                // debugger
-                console.log("inside last .then", allMoods)
                 let html = `
                 <fieldset class="fieldset">
                 <legend>Filter Journal Entries by Mood</legend>
@@ -26,7 +23,6 @@ export const MoodFilter = () => {
                     }
                     </fieldset>
                     ` 
-                console.log(html) 
                 return html         
             })   
 }

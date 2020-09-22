@@ -11,11 +11,15 @@ export const JournalFormComponent = () => {
                 </fieldset>
                 <fieldset id="concept-field">
                     <label for="concepts">Concepts covered</label>
-                    <input type="text" name="concepts" id="concepts" maxlength="10">
+                    <input type="text" name="concepts" id="concepts" maxlength="12">
                 </fieldset> 
                 <fieldset>
                     <label for="entry">Journal Entry</label>
                     <textarea name="message" rows="10" cols="30" id="entry"></textarea>
+                </fieldset>
+                <fieldset id="tagField">
+                    <label for="tags">tags</label>
+                    <input type="text" name="tags" id="tags" maxlength="12">
                 </fieldset>
                 <fieldset id="moodField">
                 </fieldset>
