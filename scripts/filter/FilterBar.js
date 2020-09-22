@@ -10,11 +10,8 @@ export const FilterBar = () => {
     console.log("filterbar")
     const render = () => {
         contentTarget.innerHTML = `
-            ${filter}
+            ${MoodFilter()}
         `
     }
-    let filter
-    MoodFilter(response => {
-         filter = response
-    }).then(render)
+        render()
 }

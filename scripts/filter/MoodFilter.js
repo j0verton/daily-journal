@@ -8,9 +8,10 @@ export const MoodFilter = () => {
             .then(moods =>{
                 allMoods = moods
                 console.log(allMoods)
+                return allMoods
             }).then(() => {
                 // debugger
-                console.log(allMoods)
+                console.log("inside last .then", allMoods)
                 let html = `
                 <fieldset class="fieldset">
                 <legend>Filter Journal Entries by Mood</legend>
@@ -25,9 +26,10 @@ export const MoodFilter = () => {
                     }
                     </fieldset>
                     ` 
-                    console.log(html) 
-                    return html         
+                console.log(html) 
+                return html         
             })
+            
 }
 eventHub.addEventListener("change", e => {
     if (e.target.name === "moodFilter") {
