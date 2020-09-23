@@ -1,4 +1,4 @@
-import { findTag, saveEntryTag, saveTag } from "./TagProvider.js"
+import { findTag, getTags, saveEntryTag, saveTag } from "./TagProvider.js"
 
 const eventHub = document.querySelector("#event-hub")
 
@@ -30,6 +30,20 @@ eventHub.addEventListener("journalStateChanged", e => {
             })
     }) 
 })
+
+
+export const displayTags = () => {
+    getTags()
+        .then(tagArray => {
+            tagArray.forEach(entryTag => {
+                console.log(entryTag)
+                const target = document.querySelector(`#entry--${entryTag.entryId}`)
+                const htmlTarget = target.querySelector(".tags")
+                if (!htmlTarget.includes(`${entryTag.tag.subject}`)){
+                htmlTarget += entryTag.tag.subject}
+            })
+        })
+}
 
 //this section deals with the tags, tags are split up, findTag searches the tags in the db for each one 
 //then they are added to both lists if they dont exist yet

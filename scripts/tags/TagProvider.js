@@ -3,7 +3,10 @@ export const findTag = (subject) => {
         .then(response => response.json())
 }
 
-
+export const getTags = () => {
+    return fetch("http://localhost:8088/entrytags?_expand=tag") // Fetch from the API
+        .then(response => response.json())
+}
 
 export const saveTag = tag => {
     let tagObj = {

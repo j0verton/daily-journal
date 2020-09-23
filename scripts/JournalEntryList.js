@@ -14,7 +14,7 @@ const eventHub = document.querySelector("#event-hub")
 
 export const EntryListComponent = () => {
     // Use the journal entry data from the data provider component
-    getEntries().then(entries => {
+    return getEntries().then(entries => {
         addEntriestoDOM(entries)
     })
 }

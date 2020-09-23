@@ -9,6 +9,7 @@ export const JournalEntryComponent = (entry) => {
             mood: ${entry.mood.label}
             ${entry.entry}
             ${entry.date}
+            <p class="tags"></p>
         </section>
     `
 }
