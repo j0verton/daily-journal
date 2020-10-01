@@ -23,7 +23,7 @@ export const JournalFormComponent = () => {
                 </fieldset>
                 <fieldset id="moodField">
                 </fieldset>
-                <fieldset>
+                <fieldset id="submitField">
                     <button type="submit" id="record-entry">record entry</button>
                 </fieldset>
             </form>
