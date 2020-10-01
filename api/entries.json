@@ -5,56 +5,137 @@
       "date": "08/23/2020",
       "concept": "HTML & CSS",
       "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-      "mood": "Excited"
+      "moodId": 3
     },
     {
       "id": 2,
       "date": "08/24/2020",
       "concept": "Complex Flexbox",
       "entry": "I tried to have an element in my Flexbox layout also be another Flexbox layout.",
-      "mood": "chill"
+      "moodId": 5
     },
     {
       "id": 3,
       "date": "08/25/2020",
       "concept": "Git/Terminal",
       "entry": "We started working on using git repositories.",
-      "mood": "Gung-Ho"
+      "moodId": 6
     },
     {
       "id": 4,
       "date": "08/26/2020",
       "concept": "Git/Terminal",
       "entry": "We started work on a group project to get practice working with github.  It's confusing but fun!",
-      "mood": "Sad"
+      "moodId": 7
     },
     {
       "id": 5,
       "date": "08/27/2020",
       "concept": "JavaScript",
       "entry": "We built a series of JavaScript modules that tracked when patients were diagnosed and whether they were infected.  The modules had and automated test.  I got so into it that I made two eggs explode (through negligence) and had to clean the kitchen walls and floors before i could finish the challenge. true story.",
-      "mood": "frantic"
+      "moodId": 8
     },
     {
       "date": "",
       "concept": "API Post",
       "entry": "We're working on posting information to APIs that we collect in forms on our different projects, including glassdale PD and our daily journal ",
-      "mood": "pumped",
+      "moodId": 4,
       "id": 6
     },
     {
       "date": 1599155923941,
       "concept": "API POST",
       "entry": "We're working on posting information to APIs that we collect in forms on our different projects, including glassdale PD and our daily journal",
-      "mood": "pumped",
+      "moodId": 4,
       "id": 7
     },
     {
       "date": "2020-09-03",
       "concept": "API POST",
       "entry": "We're working on posting information to APIs that we collect in forms on our different projects, including glassdale PD and our daily journal",
-      "mood": "pumped",
+      "moodId": 4,
       "id": 8
+    },
+    {
+      "date": "2020-09-18",
+      "concept": "APIs",
+      "entry": "Today we studied using the delete method in an API call, and we spent most of the day doing lab time.  During lab, Rick, Hanako, and I got to MVP on out Truncheons and Flagons project ",
+      "moodId": 3,
+      "id": 9
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Ok"
+    },
+    {
+      "id": 2,
+      "label": "Verklempt"
+    },
+    {
+      "id": 3,
+      "label": "Excited"
+    },
+    {
+      "id": 4,
+      "label": "Pumped"
+    },
+    {
+      "id": 5,
+      "label": "Chill"
+    },
+    {
+      "id": 6,
+      "label": "Gung-Ho"
+    },
+    {
+      "id": 7,
+      "label": "Sad"
+    },
+    {
+      "id": 8,
+      "label": "Frantic"
+    },
+    {
+      "label": "Diggin' In",
+      "id": 9
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "subject": "API"
+    },
+    {
+      "id": 2,
+      "subject": "components"
+    },
+    {
+      "id": 3,
+      "subject": "fetch"
+    }
+  ],
+  "entrytags": [
+    {
+      "id": 1,
+      "entryId": 4,
+      "tagId": 2
+    },
+    {
+      "id": 2,
+      "entryId": 4,
+      "tagId": 3
+    },
+    {
+      "id": 3,
+      "entryId": 9,
+      "tagId": 1
+    },
+    {
+      "id": 4,
+      "entryId": 9,
+      "tagId": 2
     }
   ]
 }
