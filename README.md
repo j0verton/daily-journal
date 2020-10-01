@@ -31,4 +31,4 @@ use npm to install serve and json-server.
 
 - tags dont appear when mood filter is used 
 - need a way to cancel mood filter
-- add entry edit
+- add entry edit functionality
